@@ -1,23 +1,13 @@
 {
   "name": "@repo/db",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "prisma": "^7.1.0"
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    "./client": "./index.js"
   },
   "dependencies": {
-    "@prisma/client": "^7.1.0",
-    "bcrypt": "^6.0.0"
-  },
-  "exports": {
-    "./client": "./index.ts"
+    "@prisma/client": "latest",
+    "prisma": "latest"
   }
 }

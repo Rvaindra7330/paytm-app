@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
- provider = "prisma-client-js"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
   jsOutput = "js"
 }
@@ -13,26 +13,28 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
-model User {
-  id Int @id @default(autoincrement())
-  email String? @unique
-  name String?
-  number String @unique
-  password String
-  OnRampTransaction OnRampTransaction[]
-  Balance Balance[]
-}
-model OnRampTransaction{
-  id Int @unique @default(autoincrement())
-  status OnRampStatus
-  token String
-  provider String
-  amount Int
-  startTime DateTime
-  userId Int
-  user User @relation(fields:[userId],references: [id])
 
+model User {
+  id                Int                 @id @default(autoincrement())
+  email             String?             @unique
+  name              String?
+  number            String              @unique
+  password          String
+  OnRampTransaction OnRampTransaction[]
+  Balance           Balance[]
 }
+
+model OnRampTransaction {
+  id        Int          @unique @default(autoincrement())
+  status    OnRampStatus
+  token     String
+  provider  String
+  amount    Int
+  startTime DateTime
+  userId    Int
+  user      User         @relation(fields: [userId], references: [id])
+}
+
 model Balance {
   id     Int  @id @default(autoincrement())
   userId Int  @unique
@@ -40,6 +42,7 @@ model Balance {
   locked Int
   user   User @relation(fields: [userId], references: [id])
 }
+
 enum OnRampStatus {
   Success
   Failure
