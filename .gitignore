@@ -36,3 +36,8 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+# ========= ADD THESE 3 LINES FOR PRISMA =========
+# Prisma generated client (CRITICAL - large binary files)
+packages/db/generated/
+.prisma/client/
+*.db
