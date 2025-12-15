@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@repo/*": ["../../packages/*"]
+      "@repo/*": ["../../packages/*"],
+    
     },
     "plugins": [
       {
@@ -16,7 +17,7 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts", "tailwind.config.js",
     
   ],
   "exclude": [

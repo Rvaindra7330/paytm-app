@@ -1,6 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from 'bcrypt';
 import {prisma} from '@repo/db'
+
 interface credentialsType{
     phone :string,
     password:string

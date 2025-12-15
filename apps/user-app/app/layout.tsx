@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "providers";
-import { Appbar } from "components/Appbar";
+import { AppbarClient } from "components/AppbarClient";
+const inter = Inter({ subsets: ["latin"] });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,15 +19,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Appbar/>
-       
-            {children}  
-        
-        
+      
+      <body className={inter.className}>
+        <Providers>
+        <div className=" min-w-screen min-h-screen bg-[#ebe6e6]">
+       <AppbarClient/>
+        {children}  
+        </div>
+         </Providers>
       </body>
-      </Providers>
+     
     </html>
   );
 }
