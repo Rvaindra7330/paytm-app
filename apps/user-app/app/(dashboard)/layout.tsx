@@ -5,12 +5,13 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>){
-return <div >
+return <div className="flex">
     <div className="pt-20 border-r border-slate-300 min-h-screen w-1/5 ">
         <SidebarItem href={"/dashboard"} title={"Home"} icon={<HomeIcon/>}/>
         <SidebarItem href={"/transfer"} title={"Transfer"} icon={<TransferIcon/>}/>
         <SidebarItem href={"/transactions"} title={"Transactions"} icon={<TransactionsIcon/>}/>
     </div>
+    {children}
 </div>
 }
 function HomeIcon(){
