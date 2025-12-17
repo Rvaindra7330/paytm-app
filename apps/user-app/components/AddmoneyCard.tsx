@@ -3,6 +3,7 @@ import { Button } from "@repo/ui/src/button";
 import { Card } from "@repo/ui/src/card"
 import { Select } from "@repo/ui/src/Select";
 import { TextInput } from "@repo/ui/src/TextInput"
+import { createOnRampTransaction } from "app/lib/actions/createOnRamptxn";
 import { useState } from "react";
 
 export const AddMoney=()=>{
@@ -15,8 +16,8 @@ export const AddMoney=()=>{
     }
 ]
     const [amount, setAmount] = useState(0);
-    const [redirectURL,setRedirectURL]=useState(SUPPORTED_BANKS[0]?.redirectURL)
-    const [provider,setProvider]= useState(SUPPORTED_BANKS[0]?.name)
+    const [redirectURL,setRedirectURL]=useState(SUPPORTED_BANKS[0]?.redirectURL || "")
+    const [provider,setProvider]= useState(SUPPORTED_BANKS[0]?.name || "")
     return <Card title="Add Money">
         <div className="w-full pt-4">
             <TextInput label={"Amount"} placeholder={"Amount"} onChange={(value) => {
@@ -33,8 +34,10 @@ export const AddMoney=()=>{
                 value:x.name
             }))}/>
             <div className="flex justify-center pt-4">
-                <Button onClick={()=>{
-
+                <Button onClick={async ()=>{
+                    await createOnRampTransaction(amount*100,provider)
+                    window.location.href=redirectURL
+                    
                 }}> Add Money</Button>
             </div>
         </div>

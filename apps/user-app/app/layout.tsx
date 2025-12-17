@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "providers";
 import { AppbarClient } from "components/AppbarClient";
-const inter = Inter({ subsets: ["latin"] });
+
 
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className={inter.className}>
+      <body>
         <Providers>
         <div className=" min-w-screen min-h-screen bg-[#ebe6e6]">
        <AppbarClient/>

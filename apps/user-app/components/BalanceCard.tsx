@@ -23,7 +23,7 @@ export const Balance=({amount,locked}:{amount:number,locked:number})=>{
                 Total balance
             </div>
             <div>
-              {(amount+locked/100)}INR
+              {(amount+locked)/100}INR
             </div>
         </div>
     </Card>

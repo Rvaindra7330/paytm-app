@@ -10,6 +10,7 @@ return <div className="flex">
         <SidebarItem href={"/dashboard"} title={"Home"} icon={<HomeIcon/>}/>
         <SidebarItem href={"/transfer"} title={"Transfer"} icon={<TransferIcon/>}/>
         <SidebarItem href={"/transactions"} title={"Transactions"} icon={<TransactionsIcon/>}/>
+         <SidebarItem href={"/p2p"} icon={<P2PTransferIcon />} title="P2P Transfer" />
     </div>
     <div className="w-4/5">
     {children}
@@ -35,3 +36,9 @@ function TransferIcon(){
 </svg>
 
  }
+ function P2PTransferIcon() {
+  return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+  </svg>
+
+}
