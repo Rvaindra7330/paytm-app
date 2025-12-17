@@ -1,16 +1,38 @@
 import { Card } from "@repo/ui/src/card"
 
-export const OnRampTransactions=()=>{
+
+export const OnRampTransactions=({transactions}:{
+    transactions:{
+        time: Date,
+        amount:number,
+        status:string,
+        provider:string
+    }[]
+})=>{
+    if(!transactions.length){
+        return <Card title="Recent Transactions">
+            <div>
+                No Recent Transactions
+            </div>
+
+        </Card>
+    }
     return <Card title={"Recent Transactions"}>
-        <div className="flex justify-between border-b border-slate-300">
+        {transactions.map(t=><div className="flex justify-between border-b border-slate-300">
             <div>
-                Received INR
-                <div className="text-sm">sat March30 2024</div>
+                <div>
+                    Received INR
+                </div>
+                <div>
+                    {t.time.toDateString()}
+                </div>
+                
             </div>
             <div>
-              + RS 200 
+                + Rs {t.amount/100}
             </div>
-        </div>
+        </div>)}
+        
 
     </Card>
 }

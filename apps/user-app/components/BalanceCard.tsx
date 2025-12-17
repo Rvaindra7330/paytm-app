@@ -1,29 +1,29 @@
 import { Card } from "@repo/ui/src/card"
 
-export const Balance=()=>{
+export const Balance=({amount,locked}:{amount:number,locked:number})=>{
     return <Card title={"Balance"}>
-        <div className="flex justify-between border-b border-slate-300">
+        <div className="flex justify-between border-b border-slate-300 pt-1">
             <div>
                 Unlocked balance
             </div>
             <div>
-              200 INR
+              {amount/100} INR
             </div>
         </div>
-        <div className="flex justify-between border-b border-slate-300">
+        <div className="flex justify-between border-b border-slate-300 pt-1">
             <div>
-                Unlocked balance
+                Total locked balance
             </div>
             <div>
-              200 INR
+             {locked/100}INR
             </div>
         </div>
-        <div className="flex justify-between border-b border-slate-300">
+        <div className="flex justify-between border-b border-slate-300 pt-1">
             <div>
-                Unlocked balance
+                Total balance
             </div>
             <div>
-              200 INR
+              {(amount+locked/100)}INR
             </div>
         </div>
     </Card>
