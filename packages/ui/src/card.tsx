@@ -10,7 +10,7 @@ export function Card({
 }): JSX.Element {
   return (
     <div className="border bg-white rounded-3xl p-6 ">
-      <h1 className="text-xl border-b b-2">
+      <h1 className="py-1 text-xl border-b b-2">
         {title}
       </h1>
       {children}

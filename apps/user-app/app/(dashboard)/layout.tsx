@@ -11,7 +11,10 @@ return <div className="flex">
         <SidebarItem href={"/transfer"} title={"Transfer"} icon={<TransferIcon/>}/>
         <SidebarItem href={"/transactions"} title={"Transactions"} icon={<TransactionsIcon/>}/>
     </div>
+    <div className="w-4/5">
     {children}
+    </div>
+    
 </div>
 }
 function HomeIcon(){
