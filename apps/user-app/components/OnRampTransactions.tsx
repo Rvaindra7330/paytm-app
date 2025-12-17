@@ -23,13 +23,13 @@ export const OnRampTransactions=({transactions}:{
                 <div>
                     Received INR
                 </div>
-                <div>
+                <div className="text-xs text-slate-600">
                     {t.time.toDateString()}
                 </div>
                 
             </div>
-            <div>
-                + Rs {t.amount/100}
+            <div className="flex flex-col justify-center">
+                + RS {t.amount/100}
             </div>
         </div>)}
         
