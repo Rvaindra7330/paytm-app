@@ -40,7 +40,7 @@ export default async function(){
             Transfer
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4 ">
-            <div >
+            <div>
                 <AddMoney/>
             </div>
             <div>
