@@ -23,6 +23,9 @@ export const createOnRampTransaction= async (amount:number,provider:string)=>{
 
        } 
     })
+    await prisma.balance.update({
+        where:{ userId:Number(userId) },
+        data:{ locked:{increment:amount} }})
     return{
         message:"On ramp transaction added"
     }
