@@ -53,19 +53,31 @@ NEXTAUTH_SECRET=your_jwt_secret_here
 JWT_SECRET=your_jwt_secret_here
 
 
-##  Installation & Setup
-### 1️⃣ Clone the repository
+## 🚀 Quick Start
 
+Follow these commands to set up and run the project locally:
+
+```bash
+# 1. Clone the repository
 git clone https://github.com/Rvaindra7330/paytm-app.git
 cd paytm-app
+
+# 2. Install root dependencies
 npm install
+
+# 3. Setup database
 cd packages/db
 npx prisma migrate dev --name init
 npx prisma generate
-cd apps/user-app
+
+# 4. Run the user app (frontend + API)
+cd ../../apps/user-app
 npm run dev
-cd apps/bank-webhook
+
+# 5. Run the bank webhook server
+cd ../bank-webhook
 npm run start
+
 -----
 ### Security Notes
 
