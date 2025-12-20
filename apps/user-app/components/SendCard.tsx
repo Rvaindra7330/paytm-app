@@ -29,7 +29,7 @@ export function SendCard() {
                             setNumber("")
                             toast.success("Transfer successful!")
                             }catch(e){
-                                toast.error("Transfer successful.Please try again!")
+                                toast.error("Transfer unsuccessful.Please try again!")
                             }finally{
                             setAmount("")
                             }
