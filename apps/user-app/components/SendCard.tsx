@@ -23,11 +23,16 @@ export function SendCard() {
                         setAmount(value)
                     }} />
                     <div className="pt-4 flex justify-center">
-                        <Button onClick={async () => {
+                        <Button onClick={async()=>{
+                            try{
                             await p2pTransfer(number, Number(amount) * 100)
                             setNumber("")
+                            toast.success("Transfer successful!")
+                            }catch(e){
+                                toast.error("Transfer successful.Please try again!")
+                            }finally{
                             setAmount("")
-                            toast("Transfer successful!");
+                            }
                         }}>Send</Button>
                     </div>
                 </div>
