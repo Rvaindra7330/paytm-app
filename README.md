@@ -47,12 +47,12 @@ A modern Paytm-like wallet application built with **Next.js**, **Prisma**, and *
 
 Create a `.env` file in the root with the following:
 
-
+```env
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 NEXTAUTH_SECRET=your_jwt_secret_here
 JWT_SECRET=your_jwt_secret_here
 
-
+---
 ## 🚀 Quick Start
 
 Follow these commands to set up and run the project locally:
