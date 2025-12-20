@@ -6,7 +6,7 @@ A modern Paytm-like wallet application built with **Next.js**, **Prisma**, and *
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
 - **Frontend:** Next.js (App Router) + Tailwind CSS  
 - **Authentication:** NextAuth.js with Credentials (Phone + Password)  
@@ -52,8 +52,7 @@ DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 NEXTAUTH_SECRET=your_jwt_secret_here
 JWT_SECRET=your_jwt_secret_here
 
----
-## 🚀 Quick Start
+## Quick Start
 
 Follow these commands to set up and run the project locally:
 
@@ -77,13 +76,3 @@ npm run dev
 # 5. Run the bank webhook server
 cd ../bank-webhook
 npm run start
-
------
-### Security Notes
-
-Passwords are hashed with bcrypt before storing in DB
-
-Input validation is handled via Zod
-
-Failed or invalid transfers are rejected, with toast notifications for feedback
-
