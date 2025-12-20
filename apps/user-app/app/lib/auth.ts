@@ -1,11 +1,21 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from 'bcrypt';
 import {prisma} from '@repo/db'
+import { z } from "zod";
 
 interface credentialsType{
     phone :string,
     password:string
 }
+const credentialsSchema = z.object({
+  phone: z
+    .string()
+    .min(10, "Phone number must be at least 10 digits")
+    .max(15, "Phone number too long"),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters"),
+});
 export const authOptions= {
     providers:[
         CredentialsProvider({
@@ -16,14 +26,22 @@ export const authOptions= {
             },
             async authorize(credentials:credentialsType | undefined){
                 if (!credentials?.phone || !credentials?.password) return null;
-                const hashedPass= await bcrypt.hash(credentials.password,10)
+                const parsed = credentialsSchema.safeParse({
+                phone: credentials.phone,
+                password: credentials.password,
+            });
+            if (!parsed.success) {
+                return null;
+             }    
+                const { phone, password } = parsed.data;
+                
                 const existingUser= await prisma.user.findFirst({
                     where:{
-                        number:credentials.phone
+                        number:phone
                     }
                 })
                 if(existingUser){
-                    const passValidation=await  bcrypt.compare(credentials.password,existingUser.password)
+                    const passValidation=await  bcrypt.compare(password,existingUser.password)
                     if(passValidation){
                         return {
                             id:existingUser.id.toString(),
@@ -34,9 +52,10 @@ export const authOptions= {
                     return null
                 }
                 try{
+                    const hashedPass= await bcrypt.hash(password,10)
                     const user= await prisma.user.create({
                         data:{
-                            number:credentials.phone,
+                            number:phone,
                             password:hashedPass
 
                         }
